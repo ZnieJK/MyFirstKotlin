@@ -24,6 +24,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.myapplication.Page.home.HomeScreen
+import com.example.myapplication.Page.question1.Question1Screen
+import com.example.myapplication.Page.question2.Question2Screen
 import java.util.Calendar
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -83,8 +85,8 @@ fun AppNavHost() {
             composable(Screen.Home.route) {
                 HomeScreen(onNavigate = { route -> navController.navigate(route) })
             }
-            //composable(Screen.Question1.route) { Question1Screen() }
-            //composable(Screen.Question2.route) { Question2Screen() }
+            composable(Screen.Question1.route) { Question1Screen() }
+            composable(Screen.Question2.route) { Question2Screen() }
         }
     }
 }
