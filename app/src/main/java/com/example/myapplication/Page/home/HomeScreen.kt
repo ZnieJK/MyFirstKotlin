@@ -44,21 +44,6 @@ fun HomeScreen(onNavigate: (String) -> Unit) {
             style = MaterialTheme.typography.bodyLarge,
         )
 
-        Spacer(Modifier.height(20.dp))
-
-        Card(modifier = Modifier.fillMaxWidth()) {
-            Column(Modifier.padding(16.dp)) {
-                Text("About this app", fontWeight = FontWeight.SemiBold)
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    "Question 2 fetches live data from dummyjson.com/users directly on your " +
-                            "device and computes the department summaries on the fly — no server " +
-                            "or database setup required.",
-                    style = MaterialTheme.typography.bodyMedium,
-                )
-            }
-        }
-
         Spacer(Modifier.height(32.dp))
 
         Button(
