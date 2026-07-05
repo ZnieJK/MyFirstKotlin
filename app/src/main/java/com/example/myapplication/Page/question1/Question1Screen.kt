@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
@@ -20,6 +22,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -62,14 +65,24 @@ private fun SortColumn(
     items: List<SortItem>,
     onItemClick: (SortItem) -> Unit,
 ) {
-    Card(modifier = modifier) {
+    val pastelLightGreen = Color(0xFFE8F5E9)
+    val pastelDarkGreen = Color(0xFF81C784)
+
+    Card(
+        modifier = modifier,
+        colors = CardDefaults.cardColors(
+            containerColor = pastelLightGreen,
+            contentColor = Color.Black
+        )
+    ) {
         Column(Modifier.fillMaxSize()) {
-            Surface(color = MaterialTheme.colorScheme.secondaryContainer) {
+            Surface(color = pastelDarkGreen) {
                 Text(
                     text = header ?: "Unsorted",
                     modifier = Modifier.fillMaxWidth().padding(8.dp),
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.SemiBold,
+                    color = Color.White
                 )
             }
             LazyColumn(
@@ -80,6 +93,12 @@ private fun SortColumn(
                     OutlinedButton(
                         onClick = { onItemClick(item) },
                         modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            contentColor = Color.Black
+                        ),
+                        border = ButtonDefaults.outlinedButtonBorder.copy(
+                            brush = androidx.compose.ui.graphics.SolidColor(pastelDarkGreen)
+                        )
                     ) {
                         Text(item.label)
                     }

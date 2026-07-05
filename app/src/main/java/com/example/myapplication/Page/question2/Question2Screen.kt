@@ -15,6 +15,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -32,6 +33,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -127,7 +129,14 @@ private fun DepartmentDropdown(
 
 @Composable
 private fun DepartmentCard(data: DepartmentSummary) {
-    Card(Modifier.fillMaxWidth()) {
+    val pastelLightGreen = Color(0xFFE8F5E9)
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = pastelLightGreen,
+            contentColor = Color.Black
+        )
+    ) {
         Column(Modifier.padding(16.dp)) {
             Text(
                 data.departmentName,

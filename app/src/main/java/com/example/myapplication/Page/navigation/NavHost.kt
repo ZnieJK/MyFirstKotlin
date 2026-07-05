@@ -37,13 +37,15 @@ fun AppNavHost() {
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route
 
+    val pastelDarkGreen = Color(0xFF81C784)
+
     Scaffold(
         containerColor = Color.White,
         topBar = {
             TopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFFF3F4F6),
-                    titleContentColor = Color.Black,
+                    containerColor = pastelDarkGreen,
+                    titleContentColor = Color.White,
                 ),
                 title = { Text(stringResource(R.string.app_name), fontWeight = FontWeight.Bold) },
                 actions = {
@@ -57,7 +59,8 @@ fun AppNavHost() {
                         }) {
                             Text(
                                 text = screen.label,
-                                fontWeight = if (currentRoute == screen.route) FontWeight.Bold else FontWeight.Normal,
+                                color = Color.White,
+                                fontWeight = if (currentRoute == screen.route) FontWeight.ExtraBold else FontWeight.Normal,
                             )
                         }
                     }
