@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -26,6 +27,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.myapplication.Page.home.HomeScreen
 import com.example.myapplication.Page.question1.Question1Screen
 import com.example.myapplication.Page.question2.Question2Screen
+import com.example.myapplication.R
 import java.util.Calendar
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -43,7 +45,7 @@ fun AppNavHost() {
                     containerColor = Color(0xFFF3F4F6),
                     titleContentColor = Color.Black,
                 ),
-                title = { Text("My App", fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.app_name), fontWeight = FontWeight.Bold) },
                 actions = {
                     Screen.all.forEach { screen ->
                         TextButton(onClick = {
@@ -70,7 +72,7 @@ fun AppNavHost() {
                     contentAlignment = Alignment.Center,
                 ) {
                     Text(
-                        "© $year My App. All rights reserved.",
+                        "© $year ${stringResource(R.string.app_name)}. All rights reserved.",
                         style = MaterialTheme.typography.bodySmall,
                     )
                 }
